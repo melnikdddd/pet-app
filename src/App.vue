@@ -1,10 +1,11 @@
 <template>
-  <nav>
-
-  </nav>
+  <app-header/>
   <router-view/>
 </template>
 
 <style>
 
 </style>
+<script setup lang="ts">
+import AppHeader from "@/components/layouts/header/app-header.vue";
+</script>
