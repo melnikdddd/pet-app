@@ -1,8 +1,8 @@
 <template>
-  <RouterLink :to="props.href">
+  <RouterLink :to="props.href" class="group relative">
     <div class="text-lg font-bold">{{ props.text }}</div>
     <div
-        class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-start"
+        class="absolute hidden group-hover:flex bg-white border border-black top-[25px] left-0 min-w-[150px] p-2 gap-y-1  flex-col items-start justify-start"
         v-if="!!(tabs?.length)"
     >
       <RouterLink v-for="tab in tabs" :key="tab.href" :to="tab.href">
@@ -15,11 +15,7 @@
 <script setup lang="ts">
 import {defineProps} from "vue";
 import {RouterLink} from "vue-router";
-
-type TabLinkItem = {
-  text: string;
-  href: string;
-}
+import {TabLinkItem} from "@/components/layouts/header/types/app-header.types";
 
 interface NavLinkProps {
   text: string;

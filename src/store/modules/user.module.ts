@@ -3,18 +3,12 @@ import store from "@/store/store";
 import {IUser} from "@/common/types/user/user.types";
 
 @Module({name: 'user', store, dynamic: true})
-class User extends VuexModule {
+class UserStore extends VuexModule {
     user: null | IUser = null;
-
 
     get currentUser(): IUser | null {
         return this.user
     }
-
-    get isAuth(): boolean {
-        return !!this.user;
-    }
-
 
     @Mutation
     setUser(user: IUser) {
@@ -38,6 +32,6 @@ class User extends VuexModule {
 
 }
 
-const UserModule = getModule(User);
+const UserModule = getModule(UserStore);
 
 export default UserModule;
